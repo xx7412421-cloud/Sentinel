@@ -18,10 +18,14 @@
   },
   "homepage": "https://github.com/sentinel-security-productions/Sentinel#readme",
   "dependencies": {
+    "@prisma/client": "^7.8.0",
     "@types/node": "^25.9.3",
     "@types/react": "^19.2.17",
     "axios": "^1.17.0",
     "react": "^19.2.7",
     "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "prisma": "^7.8.0"
   }
 }
