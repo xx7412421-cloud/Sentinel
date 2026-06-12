@@ -1,0 +1,42 @@
+[
+  {
+    "id": "SOROBAN-001",
+    "name": "Unauthorized Admin Change",
+    "signature": "set_admin",
+    "severity": "critical",
+    "description": "Detects calls to change the administrative control of a contract, which could indicate a hostile takeover if unverified.",
+    "monitoring_recommendations": "Monitor the source account of the transaction and verify it matches the current recognized administrator. Trigger immediate alerts if it deviates."
+  },
+  {
+    "id": "SOROBAN-002",
+    "name": "Vault Liquidity Drain",
+    "signature": "transfer",
+    "severity": "high",
+    "description": "Sudden large-scale asset transfer from a recognized vault or treasury contract. May indicate a rug pull or an exploit draining the funds.",
+    "monitoring_recommendations": "Set thresholds based on typical transaction volumes. Trigger a 'circuit breaker' or emergency pause if a transfer exceeds 15% of total liquidity within a block."
+  },
+  {
+    "id": "SOROBAN-003",
+    "name": "Unexpected Contract Upgrade",
+    "signature": "upgrade",
+    "severity": "critical",
+    "description": "Monitors for logic changes in the contract via Wasm updates. Malicious upgrades can introduce backdoors or redirect funds.",
+    "monitoring_recommendations": "Ensure that the upgrade transaction originates from a timelock or multisig. If it's a sudden, single-signer upgrade, flag it as highly suspicious."
+  },
+  {
+    "id": "SOROBAN-004",
+    "name": "Emergency Pause Triggered",
+    "signature": "pause",
+    "severity": "medium",
+    "description": "Detects when the emergency pause functionality is invoked on a contract.",
+    "monitoring_recommendations": "Alert stakeholders to investigate the cause of the pause. It is a sign that anomalous behavior has already been observed or a known vulnerability is being mitigated."
+  },
+  {
+    "id": "SOROBAN-005",
+    "name": "High-Frequency Token Minting",
+    "signature": "mint",
+    "severity": "high",
+    "description": "Repeated or unusually large minting operations in a short time span. Often an indicator of infinite mint exploits.",
+    "monitoring_recommendations": "Cross-check minting operations against expected issuance schedules. Alert on bursts of minting transactions."
+  }
+]

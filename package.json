@@ -1,0 +1,27 @@
+{
+  "name": "sentinel",
+  "version": "1.0.0",
+  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)\r [![Ecosystem: Stellar/EVM](https://img.shields.io/badge/Ecosystem-Stellar%20%7C%20EVM-purple.svg)](https://stellar.org)\r [![Security: Real--Time](https://img.shields.io/badge/Security-Real--Time%20Monitoring-orange.svg)](#)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sentinel-security-productions/Sentinel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sentinel-security-productions/Sentinel/issues"
+  },
+  "homepage": "https://github.com/sentinel-security-productions/Sentinel#readme",
+  "dependencies": {
+    "@types/node": "^25.9.3",
+    "@types/react": "^19.2.17",
+    "axios": "^1.17.0",
+    "react": "^19.2.7",
+    "typescript": "^6.0.3"
+  }
+}
