@@ -18,10 +18,13 @@
   },
   "homepage": "https://github.com/sentinel-security-productions/Sentinel#readme",
   "dependencies": {
+    "@nestjs/typeorm": "^11.0.1",
     "@types/node": "^25.9.3",
     "@types/react": "^19.2.17",
     "axios": "^1.17.0",
+    "pg": "^8.21.0",
     "react": "^19.2.7",
+    "typeorm": "^1.0.0",
     "typescript": "^6.0.3"
   }
 }
