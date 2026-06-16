@@ -45,7 +45,16 @@ interface Props {
 }
 
 export const SecurityReportingDashboard: React.FC<Props> = ({ report = defaultReport }) => {
-  const { totalAlerts, severityBreakdown, topChains, resolvedAlerts, unresolvedAlerts, criticalUnresolved, periodDays, generatedAt } = report;
+  const {
+    totalAlerts,
+    severityBreakdown,
+    topChains,
+    resolvedAlerts,
+    unresolvedAlerts,
+    criticalUnresolved,
+    periodDays,
+    generatedAt,
+  } = report;
 
   return (
     <div className="srd-container">
@@ -81,22 +90,24 @@ export const SecurityReportingDashboard: React.FC<Props> = ({ report = defaultRe
         <section className="srd-card srd-section" aria-label="Severity breakdown">
           <h2 className="srd-section-title">Severity Breakdown</h2>
           <ul className="srd-severity-list">
-            {(Object.entries(severityBreakdown) as [keyof SeverityBreakdown, number][]).map(([level, count]) => (
-              <li key={level} className="srd-severity-row">
-                <span className={`srd-badge srd-badge--${level}`}>{level}</span>
-                <div className="srd-bar-track">
-                  <div
-                    className={`srd-bar srd-bar--${level}`}
-                    style={{ width: totalAlerts ? `${(count / totalAlerts) * 100}%` : '0%' }}
-                    role="progressbar"
-                    aria-valuenow={count}
-                    aria-valuemax={totalAlerts}
-                    aria-label={`${level} severity`}
-                  />
-                </div>
-                <span className="srd-severity-count">{count}</span>
-              </li>
-            ))}
+            {(Object.entries(severityBreakdown) as [keyof SeverityBreakdown, number][]).map(
+              ([level, count]) => (
+                <li key={level} className="srd-severity-row">
+                  <span className={`srd-badge srd-badge--${level}`}>{level}</span>
+                  <div className="srd-bar-track">
+                    <div
+                      className={`srd-bar srd-bar--${level}`}
+                      style={{ width: totalAlerts ? `${(count / totalAlerts) * 100}%` : '0%' }}
+                      role="progressbar"
+                      aria-valuenow={count}
+                      aria-valuemax={totalAlerts}
+                      aria-label={`${level} severity`}
+                    />
+                  </div>
+                  <span className="srd-severity-count">{count}</span>
+                </li>
+              ),
+            )}
           </ul>
         </section>
 

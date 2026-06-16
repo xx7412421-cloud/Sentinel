@@ -60,25 +60,20 @@ export function createTracingSdk(config?: Partial<TracingConfig>): NodeSDK {
 
   // Add console exporter in development for easy debugging
   if (process.env.NODE_ENV !== 'production') {
-    spanProcessors.push(
-      new SimpleSpanProcessor(new ConsoleSpanExporter()),
-    );
+    spanProcessors.push(new SimpleSpanProcessor(new ConsoleSpanExporter()));
   }
 
   if (spanProcessors.length === 0) {
     console.warn(
       '[Observability] Warning: tracing is enabled but no span processors are configured. ' +
-      'Set OTEL_EXPORTER_URL to export traces to an OTLP collector.',
+        'Set OTEL_EXPORTER_URL to export traces to an OTLP collector.',
     );
   }
 
   const sdk = new NodeSDK({
     resource,
     spanProcessors,
-    instrumentations: [
-      new HttpInstrumentation(),
-      new ExpressInstrumentation(),
-    ],
+    instrumentations: [new HttpInstrumentation(), new ExpressInstrumentation()],
   });
 
   return sdk;
@@ -124,9 +119,7 @@ export function initTracing(): NodeSDK | null {
     sdk
       .shutdown()
       .then(() => console.log('[Observability] Tracing terminated'))
-      .catch((error) =>
-        console.error('[Observability] Error terminating tracing', error),
-      )
+      .catch(error => console.error('[Observability] Error terminating tracing', error))
       .finally(() => process.exit(0));
   });
 
