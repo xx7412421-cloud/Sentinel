@@ -4,9 +4,16 @@ import { DatabaseModule } from '../../../database/database.module';
 import { HealthModule } from './modules/health/health.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
 import { ReportingModule } from './modules/reporting/reporting.module';
+import { DependencyTrackerModule } from './modules/contracts/dependencies/dependency-tracker.module';
 
 @Module({
-  imports: [DatabaseModule, HealthModule, NotificationsModule, ReportingModule],
+  imports: [
+    DatabaseModule,
+    HealthModule,
+    NotificationsModule,
+    ReportingModule,
+    DependencyTrackerModule,
+  ],
   controllers: [AppController],
 })
 export class AppModule {}

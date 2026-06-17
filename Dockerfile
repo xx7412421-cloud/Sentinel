@@ -16,8 +16,8 @@ COPY . .
 # Generate Prisma client
 RUN npm run prisma:generate
 
-# Build application (if you have a build script)
-# RUN npm run build
+# Build application
+RUN npm run build:backend
 
 # Runtime stage
 FROM node:22-alpine
@@ -37,7 +37,7 @@ RUN npm ci --only=production && \
 
 # Copy built application from builder
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
-COPY --from=builder /app/src ./src
+COPY --from=builder /app/apps/backend/dist ./dist
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && \
@@ -55,4 +55,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 # Use dumb-init to handle signals properly
 ENTRYPOINT ["dumb-init", "--"]
 
-CMD ["node", "src/main.js"]
+CMD ["node", "dist/apps/backend/src/main.js"]
