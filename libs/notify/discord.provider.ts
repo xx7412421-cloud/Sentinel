@@ -42,7 +42,9 @@ export class DiscordProvider {
       await axios.post(this.webhookUrl, discordPayload);
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        throw new Error(`Failed to send alert to Discord: ${error.response?.data?.message || error.message}`);
+        throw new Error(
+          `Failed to send alert to Discord: ${error.response?.data?.message || error.message}`,
+        );
       }
       throw new Error('An unexpected error occurred while sending the alert to Discord.');
     }

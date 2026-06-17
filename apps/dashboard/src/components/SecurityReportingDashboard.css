@@ -1,0 +1,148 @@
+/* ── Container ──────────────────────────────────────────────── */
+.srd-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: system-ui, sans-serif;
+  color: #e2e8f0;
+  background: #0f172a;
+  min-height: 100vh;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.srd-header {
+  margin-bottom: 2rem;
+}
+.srd-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 0.25rem;
+}
+.srd-subtitle {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* ── Card ───────────────────────────────────────────────────── */
+.srd-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
+/* ── KPI grid ───────────────────────────────────────────────── */
+.srd-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.srd-kpi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.25rem;
+}
+.srd-kpi-value {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #f1f5f9;
+}
+.srd-kpi-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.srd-kpi--danger .srd-kpi-value { color: #f87171; }
+.srd-kpi--success .srd-kpi-value { color: #4ade80; }
+.srd-kpi--warning .srd-kpi-value { color: #fbbf24; }
+
+/* ── Two-column row ─────────────────────────────────────────── */
+.srd-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+/* ── Section titles ─────────────────────────────────────────── */
+.srd-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0 0 1rem;
+}
+
+/* ── Severity list ──────────────────────────────────────────── */
+.srd-severity-list,
+.srd-chain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.srd-severity-row,
+.srd-chain-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ── Severity badges ────────────────────────────────────────── */
+.srd-badge {
+  width: 5rem;
+  flex-shrink: 0;
+  padding: 0.2rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: capitalize;
+}
+.srd-badge--low    { background: #1e3a5f; color: #60a5fa; }
+.srd-badge--medium { background: #3b2e00; color: #fbbf24; }
+.srd-badge--high   { background: #3b1f00; color: #f97316; }
+.srd-badge--critical { background: #3b0a0a; color: #f87171; }
+
+/* ── Progress bars ──────────────────────────────────────────── */
+.srd-bar-track {
+  flex: 1;
+  background: #0f172a;
+  border-radius: 9999px;
+  height: 8px;
+  overflow: hidden;
+}
+.srd-bar {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+.srd-bar--low      { background: #3b82f6; }
+.srd-bar--medium   { background: #f59e0b; }
+.srd-bar--high     { background: #f97316; }
+.srd-bar--critical { background: #ef4444; }
+.srd-bar--chain    { background: #818cf8; }
+
+/* ── Counts ─────────────────────────────────────────────────── */
+.srd-severity-count,
+.srd-chain-count {
+  width: 2rem;
+  text-align: right;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #cbd5e1;
+}
+
+/* ── Chain name ─────────────────────────────────────────────── */
+.srd-chain-name {
+  width: 6rem;
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  color: #e2e8f0;
+}
