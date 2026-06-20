@@ -9,7 +9,7 @@ import { GovernanceModule } from './modules/governance/governance.module';
 import { SiemModule } from './integrations/siem/siem.module';
 import { ChainsModule } from './modules/chains/chains.module';
 import { RiskAnalyzerModule } from './modules/soroban/risk/risk-analyzer.module';
-import { NotesModule } from '../../../src/modules/cases/notes/notes.module';
+import { NotesModule } from './modules/cases/notes/notes.module';
 
 @Module({
   imports: [

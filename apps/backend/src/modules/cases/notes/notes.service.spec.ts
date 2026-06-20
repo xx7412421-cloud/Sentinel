@@ -181,7 +181,7 @@ describe('NotesService', () => {
   describe('updateNote', () => {
     it('should update a note and append an audit entry', async () => {
       mockAuditLog.findUnique.mockResolvedValue(noteRecord);
-      mockAuditLog.update = jest.fn().mockResolvedValue({});
+      mockAuditLog.update.mockResolvedValue({});
       mockAuditLog.create.mockResolvedValue({ id: 'audit-2' });
       mockAuditLog.findMany.mockResolvedValue([auditRecord]);
 
@@ -218,7 +218,7 @@ describe('NotesService', () => {
   describe('deleteNote', () => {
     it('should soft-delete a note and append an audit entry', async () => {
       mockAuditLog.findUnique.mockResolvedValue(noteRecord);
-      mockAuditLog.update = jest.fn().mockResolvedValue({});
+      mockAuditLog.update.mockResolvedValue({});
       mockAuditLog.create.mockResolvedValue({ id: 'audit-3' });
 
       await service.deleteNote(NOTE_ID, AUTHOR_ID, AUTHOR_NAME);

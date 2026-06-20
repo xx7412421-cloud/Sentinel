@@ -201,7 +201,7 @@ export class NotesService {
     };
 
     // Update the note record in-place
-    await (this.prisma.auditLog as any).update({
+    await this.prisma.auditLog.update({
       where: { id: noteId },
       data: { metadata: updatedMeta },
     });
@@ -263,7 +263,7 @@ export class NotesService {
 
     const deletedAt = new Date().toISOString();
 
-    await (this.prisma.auditLog as any).update({
+    await this.prisma.auditLog.update({
       where: { id: noteId },
       data: { metadata: { ...meta, deleted: true, deletedAt } },
     });
