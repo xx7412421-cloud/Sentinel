@@ -1,18 +1,17 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    // Include root and application-level tsconfigs so ESLint can run type-aware rules
     project: ['tsconfig.json', 'apps/dashboard/tsconfig.json', 'apps/web/tsconfig.json'],
     tsconfigRootDir: __dirname,
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint/eslint-plugin'],
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
   root: true,
   env: { node: true },
-  ignorePatterns: ['.eslintrc.js', 'dist/**'],
+  // Exclude build artifacts and the dashboard runtime files
+  ignorePatterns: ['.eslintrc.js', 'dist/**', 'apps/dashboard/**'],
   rules: {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -22,8 +21,8 @@ module.exports = {
   },
   overrides: [
     {
-      // Files outside all tsconfigs — lint without type-aware rules
-      files: ['observability/**/*.ts', 'prisma/**/*.ts', 'src/**/*.ts', 'env.d.ts', 'apps/web/app/**/*'],
+      // Files that are intentionally outside any tsconfig — lint without type-aware rules
+      files: ['observability/**/*.ts', 'prisma/**/*.ts', 'env.d.ts'],
       parserOptions: {
         project: null,
       },
