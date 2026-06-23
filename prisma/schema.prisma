@@ -60,6 +60,9 @@ model Alert {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  acknowledgedAt DateTime?
+  acknowledgedBy String?
+
   user User @relation(fields: [userId], references: [id])
 
   @@map("alerts")
